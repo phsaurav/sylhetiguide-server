@@ -1,0 +1,38 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\ph\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add express cors mongodb dotenv
+
+PATH: 
+  C:\Program Files (x86)\Razer Chroma SDK\bin;C:\Program Files\Razer Chroma SDK\bin;C:\Program Files (x86)\Razer\ChromaBroadcast\bin;C:\Program Files\Razer\ChromaBroadcast\bin;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\MinGW\bin;C:\MinGW\msys\1.0\bin;C:\Python\Python38;C:\ProgramData\chocolatey\bin;C:\Windows\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;C:\Program Files\dotnet\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Users\ph\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\ph\AppData\Local\Programs\Python\Python39\;C:\Users\ph\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\ph\AppData\Local\Programs\Python\Python37\;C:\Users\ph\.pyenv\pyenv-win\bin;C:\Users\ph\.pyenv\pyenv-win\shims;C:\Users\ph\AppData\Local\Microsoft\WindowsApps;C:\Users\ph\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\JetBrains\PyCharm Community Edition 2020.2\bin;C:\Users\ph\.pyenv\pyenv-win\bin;C:\Users\ph\.pyenv\pyenv-win\version;C:\Users\ph\AppData\Local\hyper\app-3.0.2\resources\bin;C:\Users\ph\AppData\Roaming\npm;C:\Program Files\heroku\bin
+
+Yarn version: 
+  1.22.4
+
+Node version: 
+  14.17.1
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: connect ECONNREFUSED 104.16.20.35:443
+      at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1148:16)
+
+npm manifest: 
+  {
+    "name": "tourism-server",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
