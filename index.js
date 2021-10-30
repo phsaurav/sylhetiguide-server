@@ -41,11 +41,11 @@ async function run() {
 		});
 
 		//*GET One User Data
-		app.post('/packages/byemail', async (req, res) => {
+		app.post('/enrollments/byemail', async (req, res) => {
 			const email = req.body;
 			const query = { email: { $in: email } };
-			const packages = await enrollCollection.find(query).toArray();
-			res.send(packages);
+			const enrollments = await enrollCollection.find(query).toArray();
+			res.send(enrollments);
 		});
 
 		//*Enrollment POST
