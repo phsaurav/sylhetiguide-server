@@ -85,6 +85,25 @@ async function run() {
 			res.json(result);
 		});
 
+		//*UPDATE Status
+		app.put('/status/:id', async (req, res) => {
+			const id = req.params.id;
+			const filter = { _id: ObjectId(id) };
+			const options = { upsert: true };
+			const updateDoc = {
+				$set: {
+					status: 'approved',
+				},
+			};
+			const result = await enrollCollection.updateOne(
+				filter,
+				updateDoc,
+				options
+			);
+			console.log('Updating Users Status');
+			res.json(result);
+		});
+
 		//*DELETE Single Data
 		app.delete('/enrollments/:id', async (req, res) => {
 			const id = req.params.id;
