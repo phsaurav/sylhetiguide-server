@@ -24,14 +24,14 @@ async function run() {
 		const packageCollection = database.collection('tourPackages');
 		const enrollCollection = database.collection('enrollments');
 
-		//*Get All Package Api
+		//*GET All Package Api
 		app.get('/packages', async (req, res) => {
 			const cursor = packageCollection.find({});
 			const packages = await cursor.toArray();
 			res.send(packages);
 		});
 
-		//*Get A Single Data
+		//*GET A Single Data
 		app.get('/packages/:id', async (req, res) => {
 			const id = req.params.id;
 			console.log('Getting Specific service', id);
@@ -39,6 +39,15 @@ async function run() {
 			const service = await packageCollection.findOne(query);
 			res.json(service);
 		});
+
+		//*GET One User Data
+		app.post('/packages/byemail', async (req, res) => {
+			const email = req.body;
+			const query = { email: { $in: email } };
+			const packages = await enrollCollection.find(query).toArray();
+			res.send(packages);
+		});
+
 		//*Enrollment POST
 		app.post('/enrollments', async (req, res) => {
 			const enroll = req.body;
