@@ -48,6 +48,13 @@ async function run() {
 			res.send(enrollments);
 		});
 
+		//*GET All User Data
+		app.get('/enrollments', async (req, res) => {
+			const cursor = enrollCollection.find({});
+			const packages = await cursor.toArray();
+			res.send(packages);
+		});
+
 		//*Enrollment POST
 		app.post('/enrollments', async (req, res) => {
 			const enroll = req.body;
