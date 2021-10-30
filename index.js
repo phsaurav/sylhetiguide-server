@@ -3,6 +3,7 @@ const app = express();
 const { MongoClient } = require('mongodb');
 require('dotenv').config();
 const cors = require('cors');
+const ObjectId = require('mongodb').ObjectId;
 const port = process.env.PORT || 5000;
 
 //middleware
@@ -28,6 +29,15 @@ async function run() {
 			const packages = await cursor.toArray();
 			res.send(packages);
 		});
+
+		//*Get A Single Data
+		app.get('/packages/:id', async (req, res) => {
+			const id = req.params.id;
+			console.log('Getting Specific service', id);
+			const query = { _id: ObjectId(id) };
+			const service = await packageCollection.findOne(query);
+			res.json(service);
+		});
 	} finally {
 		// await client.close();
 	}
@@ -40,5 +50,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, () => {
-	console.log('Running Genius Server on port', port);
+	console.log('Running Server on port', port);
 });
