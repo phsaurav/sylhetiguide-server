@@ -62,6 +62,13 @@ async function run() {
 			res.send(result);
 		});
 
+		//*Package POST
+		app.post('/packages', async (req, res) => {
+			const package = req.body;
+			const result = await packageCollection.insertOne(package);
+			res.send(result);
+		});
+
 		//*UPDATE Enrollement data
 		app.put('/update/:id', async (req, res) => {
 			const id = req.params.id;
