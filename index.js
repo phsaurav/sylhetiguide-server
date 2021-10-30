@@ -54,6 +54,37 @@ async function run() {
 			const result = await enrollCollection.insertOne(enroll);
 			res.send(result);
 		});
+
+		//*UPDATE Enrollement data
+		app.put('/update/:id', async (req, res) => {
+			const id = req.params.id;
+			const updatedInfo = req.body;
+			const filter = { _id: ObjectId(id) };
+			const options = { upsert: true };
+			const updateDoc = {
+				$set: {
+					name: updatedInfo.name,
+					email: updatedInfo.email,
+					address: updatedInfo.address,
+					number: updatedInfo.number,
+				},
+			};
+			const result = await enrollCollection.updateOne(
+				filter,
+				updateDoc,
+				options
+			);
+			console.log('Updating Users', updatedInfo);
+			res.json(result);
+		});
+
+		//*DELETE Single Data
+		app.delete('/enrollments/:id', async (req, res) => {
+			const id = req.params.id;
+			const query = { _id: ObjectId(id) };
+			const result = await enrollCollection.deleteOne(query);
+			res.json(result);
+		});
 	} finally {
 		// await client.close();
 	}
