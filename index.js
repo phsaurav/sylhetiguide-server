@@ -22,6 +22,7 @@ async function run() {
 		console.log('Connected to Database!');
 		const database = client.db('sylhetiGuide');
 		const packageCollection = database.collection('tourPackages');
+		const enrollCollection = database.collection('enrollments');
 
 		//*Get All Package Api
 		app.get('/packages', async (req, res) => {
@@ -37,6 +38,12 @@ async function run() {
 			const query = { _id: ObjectId(id) };
 			const service = await packageCollection.findOne(query);
 			res.json(service);
+		});
+		//*Enrollment POST
+		app.post('/enrollments', async (req, res) => {
+			const enroll = req.body;
+			const result = await enrollCollection.insertOne(enroll);
+			res.send(result);
 		});
 	} finally {
 		// await client.close();
